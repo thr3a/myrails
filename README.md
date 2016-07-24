@@ -1,9 +1,9 @@
-# オレオレRails
+# オレオレRails APIモード
 
 Nginxの利用を想定したRailsテンプレート
 
 - ruby 2.3.0
-- Rails 4.2.6
+- Rails 5.0.0
 - MySQL
 - Capistrano Version: 3.5.0
 - Puma(仮)
@@ -11,21 +11,9 @@ Nginxの利用を想定したRailsテンプレート
 # インストール
 
 ```
-git clone https://github.com/thr3a/myrails.git
+git clone https://github.com/thr3a/myrails.git -b api
 cd myrails
 bundle install
-```
-
-# 初期設定
-
-**config/application.rb** にてサービス名の設定
-
-```ruby
-module Myrails
-  class Application < Rails::Application
-    config.title = "My rails"
-  end
-end
 ```
 
 # デプロイの設定
@@ -62,12 +50,6 @@ bundle exec cap production deploy
 pumaの設定変更したら `bundle exec cap production puma:config` すること
 
 # その他
-
-### モデルのバリデーションメッセージ出したい
-
-```ruby
-flash[:danger] = @post.errors.full_messages
-```
 
 ### nginxの設定例
 
